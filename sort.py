@@ -83,6 +83,6 @@ def partition(lyst, left, right):
             swap(lyst, index, boundary)
             boundary += 1
     # Exchange the pivot item and the boundary item
-    swap(lyst, pivot, boundary)
+    swap(lyst, right, boundary)
     return boundary
 
