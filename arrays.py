@@ -19,7 +19,7 @@ class Array(object):
         """Capacity is the static size of the array.
         fillValue is placed at each position"""
         self._items = list()
-        self.default_capacity = capacity
+        self.defaultCapacity = capacity
         self.logicalSize = 0
         for count in range(capacity):
             self._items.append(fillValue)
@@ -51,7 +51,7 @@ class ArrayHelper(object):
         """Increase the physical size of array."""
         temp = Array(len(array) * 2)
         temp.logicalSize = array.logicalSize
-        temp.default_capacity = array.default_capacity
+        temp.defaultCapacity = array.defaultCapacity
         for i in range(array.logicalSize):
             temp[i] = array[i]
         array = temp
@@ -61,7 +61,7 @@ class ArrayHelper(object):
         """Decrease the physical size of array."""
         temp = Array(len(self._array) // 2)
         temp.logicalSize = array.logicalSize
-        temp.default_capacity = array.default_capacity
+        temp.defaultCapacity = array.defaultCapacity
         for i in range(array.logicalSize):
             temp[i] = array[i]
         array = temp
@@ -82,6 +82,6 @@ class ArrayHelper(object):
         for i in range(targetIndex, array.logicalSize):
             array[i] = array[i + 1]
         array.logicalSize -= 1
-        if array.logicalSize <= len(array) // 4 and len(array) >= array.default_capacity * 2:
+        if array.logicalSize <= len(array) // 4 and len(array) >= array.defaultCapacity * 2:
             array = self.decrease(array)
         return array
