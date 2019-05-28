@@ -23,7 +23,7 @@ class Array(object):
         self.logicalSize = 0
         for count in range(capacity):
             self._items.append(fillValue)
-    
+
     def __len__(self):
         """-> The capacity of the array."""
         return len(self._items)
