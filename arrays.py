@@ -15,7 +15,7 @@ The fill value is None by default.
 class Array(object):
     """Represents an array."""
 
-    def __init__(self, capacity, fillValue = None):
+    def __init__(self, capacity, fillValue=None):
         """Capacity is the static size of the array.
         fillValue is placed at each position"""
         self._items = list()
