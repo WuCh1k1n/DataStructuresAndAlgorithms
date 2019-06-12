@@ -8,6 +8,8 @@ class ArrayBag(object):
 
     # Constructor
     def __init__(self, sourceCollection=None):
+        """Sets the initial state of self, which includes the
+        content of sourceCollection, if it's present."""
         self._items = Array(ArrayBag.DEFAULT_CAPACITY)
         self._size = 0
         if sourceCollection:
