@@ -1,14 +1,14 @@
-class AbstractBag(object):
+from abstractcollection import AbstractCollection
+
+
+class AbstractBag(AbstractCollection):
     """An abstract bag implementation."""
 
     # Constructor
     def __init__(self, sourceCollection=None):
         """Sets the initial state of self, which includes the
         content of sourceCollection, if it's present."""
-        self._size = 0
-        if sourceCollection:
-            for item in sourceCollection:
-                self.add(item)
+        AbstractCollection(self, sourceCollection)
 
     # Accessor methods
     def isEmpty(self):
@@ -30,15 +30,3 @@ class AbstractBag(object):
         for item in other:
             result.add(item)
         return result
-
-    def __eq__(self, other):
-        """Returns True if self equals other,
-        or False otherwise."""
-        if self is other:
-            return True
-        if type(self) != type(other) or len(self) != len(other):
-            return False
-        for item in other:
-            if not item in self:
-                return False
-        return True
