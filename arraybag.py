@@ -1,6 +1,8 @@
 from arrays import Array
+from abstractbag import AbstractBag
 
-class ArrayBag(object):
+
+class ArrayBag(AbstractBag):
     """An array-based bag implementation."""
 
     # Class variable
@@ -11,48 +13,15 @@ class ArrayBag(object):
         """Sets the initial state of self, which includes the
         content of sourceCollection, if it's present."""
         self._items = Array(ArrayBag.DEFAULT_CAPACITY)
-        self._size = 0
-        if sourceCollection:
-            for item in sourceCollection:
-                self.add(item)
+        AbstractBag.__init__(self, sourceCollection)
 
     # Accessor methods
-    def isEmpty(self):
-        """Returns True if len(self) == 0, or False otherwise."""
-        return len(self) == 0
-
-    def __len__(self):
-        """Returns the number of items in self."""
-        return self._size
-
     def __iter__(self):
         """Supports iteration over a view of self."""
         cursor = 0
         while cursor < len(self):
             yield self._items[cursor]
             cursor += 1
-
-    def __str__(self):
-        """Return the string representation of self."""
-        return "{" + ",".join(map(self)) + "}"
-
-    def __add__(self, other):
-        """Returns a new bag containing the contents
-        of self and other."""
-        result = ArrayBag(self)
-        for item in other:
-            result.add(item)
-        return result
-
-    def __eq__(self, other):
-        """Returns True if self equals other,
-        or False otherwise."""
-        if self is other: return True
-        if type(self) != type(other) or len(self) != len(other): return False
-        for item in other:
-            if not item in self:
-                return False
-        return True
 
     # Mutator methods
     def clear(self):
@@ -79,7 +48,7 @@ class ArrayBag(object):
             if targetItem == item:
                 break
             targetIndex += 1
-        
+
         # Shift items to the left of target up by one position
         for i in range(targetIndex, len(self) - 1):
             self._items[i] = self._items[i + 1]

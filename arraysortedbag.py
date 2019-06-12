@@ -1,5 +1,6 @@
 from arraybag import ArrayBag
 
+
 class ArraySortedBag(ArrayBag):
     """An array-based sorted bag implementation."""
 
@@ -41,4 +42,3 @@ class ArraySortedBag(ArrayBag):
                 self._items[i] = self._items[i - 1]
             self._items[targetIndex] = item
             self._size += 1
-            
