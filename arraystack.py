@@ -25,6 +25,8 @@ class ArrayStack(AbstractStack):
         """Returns the item at top of the stack.
         Precondition: the stack is not empty.
         Raise KeyError if the stack is empty."""
+        if isEmpty(self):
+            raise KeyError("the stack is empty")
         return self._items[len(self) - 1]
 
     # Mutator mehtods
@@ -44,6 +46,8 @@ class ArrayStack(AbstractStack):
         Precondition: the stack is not empty.
         Raise KeyError if the stack is empty.
         Postcondition: the top item is removed from the stack."""
+        if isEmpty(self):
+            raise KeyError("the stack is empty")
         oldItem = self._items[len(self)]
         self._size -= 1
         # Resize array here if necessary
