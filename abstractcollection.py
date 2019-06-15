@@ -11,9 +11,13 @@ class AbstractCollection(object):
                 self.add(item)
 
     # Accessor methods
-    def __str__(self):
-        """Return the string representation of self."""
-        return "[" + ",".join(map(self)) + "]"
+    def __len__(self):
+        """Returns the number of items in self."""
+        return self._size
+
+    def isEmpty(self):
+        """Returns True if len(self) == 0, or False otherwise."""
+        return len(self) == 0
 
     def __eq__(self, other):
         """Returns True if self equals other,
@@ -27,3 +31,16 @@ class AbstractCollection(object):
             if item != next(otherIter):
                 return False
         return True
+
+    def __str__(self):
+        """Return the string representation of self."""
+        return "{" + ",".join(map(self)) + "}"
+
+    # Mutator methods
+    def __add__(self, other):
+        """Returns a new bag containing the contents
+        of self and other."""
+        result = type(self)(self)
+        for item in other:
+            result.add(item)
+        return result
