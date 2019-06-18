@@ -15,7 +15,7 @@ class Scanner(object):
 
     def next(self):
         if not self.hasNext():
-            raise AttributeError("The string doesn't contain another token.")
+            raise KeyError("The string doesn't contain another token.")
         nextToken = Token(self._str[self._position])
         self._position += 1
         return nextToken
