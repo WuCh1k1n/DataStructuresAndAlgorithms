@@ -3,6 +3,7 @@ from abstractqueue import AbstractQueue
 
 
 class LinkedQueue(AbstractQueue):
+    """Link-based queue implementation."""
 
     def __init__(self, sourceCollection=None):
         """Sets the initial state of self, which includes the
