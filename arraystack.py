@@ -17,7 +17,7 @@ class ArrayStack(AbstractStack):
         """Supports iteration over a view of self.
         Visits items from bottom to top of stack."""
         cursor = 0
-        while cursor < len(self._items):
+        while cursor < len(self):
             yield self._items[cursor]
             cursor += 1
 
