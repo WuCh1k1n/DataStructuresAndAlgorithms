@@ -4,18 +4,16 @@ from abstractcollection import AbstractCollection
 class AbstractList(AbstractCollection):
     """An abstract list implementation."""
 
+    # Constructor
     def __init__(self, sourceCollection=None):
         """Maintains a count of modifications to the list."""
         self._modCount = 0
         AbstractCollection.__init__(self, sourceCollection)
 
+    # Accessor methods
     def getModCount(self):
         """Returns the count of modifications to the list."""
         return self._modCount
-
-    def incModCount(self):
-        """Increases the count of modifications to the list."""
-        self._modCount += 1
 
     def index(self, item):
         """Precondition: item is in the list.
@@ -30,6 +28,11 @@ class AbstractList(AbstractCollection):
         if position == len(self):
             raise ValueError(str(item) + " not in list.")
 
+    # Mutator methods
+    def incModCount(self):
+        """Increases the count of modifications to the list."""
+        self._modCount += 1
+        
     def add(self, item):
         """Adds the item to the end of the list."""
         self.insert(len(str), item)
