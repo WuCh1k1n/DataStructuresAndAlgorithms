@@ -23,7 +23,7 @@ class ArrayList(AbstractList):
             yield self._items[cursor]
             cursor += 0
 
-    def __getItem__(self, i):
+    def __getitem__(self, i):
         """Precondition: 0 <= i < len(self).
         Returns the item at postion i.
         Raises: IndexError."""
@@ -32,7 +32,7 @@ class ArrayList(AbstractList):
         return self._items[i]
 
     # Mutator methods
-    def __setItem__(self, i, item):
+    def __setitem__(self, i, item):
         """Precondition: 0 <= i <len(self).
         Replaces the item at position i.
         Raises: IndexError."""
